@@ -10,18 +10,27 @@ class Player
       # ヒント：getsメソッドについて調べてみましょう。
       input_hand = gets.chomp
       # 「input_hand」が「0, 1, 2」のいずれかだと繰り返し処理を終了し、それ以外（アルファベットも含む）だと繰り返し処理を継続します。
+      
+      
       while true
-        [0,1,2].each do |x|
+        if "abcdefghijklmnopqrstuvwxyz".include?(input_hand)
+          puts "les caractères ne sont pas authorisés"
+          input_hand = gets
+        end
+        if "3456789".include?(input_hand)
+          puts "Veuillez saisir un nombre en 0 et 2"
+          input_hand = gets
+        end
+          [0,1,2].each do |x|
           if x == input_hand.to_i
             return input_hand.to_i
             break
         end
       end
-      puts "Veuillez saisir un nombre en 0 et 2"
-      input_hand = gets
-    end
+        end      
+      end
   end
-end
+
   class Enemy
     def hand 
       return rand(0..2)
