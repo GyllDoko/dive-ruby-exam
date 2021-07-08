@@ -13,21 +13,16 @@ class Player
       
       
       while true
-        if "abcdefghijklmnopqrstuvwxyz".include?(input_hand)
-          puts "les caractères ne sont pas authorisés"
-          input_hand = gets
-        end
-        if "3456789".include?(input_hand)
-          puts "Veuillez saisir un nombre en 0 et 2"
-          input_hand = gets
-        end
-          [0,1,2].each do |x|
-          if x == input_hand.to_i
+        
+          test_var = ["0","1","2"].include?(input_hand)
+          
+          if test_var
             return input_hand.to_i
-            break
-        end
-      end
-        end      
+          else
+            puts "veuillez saisir un nombre entre 0 et 2"
+            input_hand = gets.chomp
+          end
+        end 
       end
   end
 
